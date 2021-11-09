@@ -16,10 +16,24 @@
   </head>
   <body>
     <div class="view-container">
+      <ul class="nav nav-pills">
+        <li ng-class="{active: isActive('/')}"><a href="#!">Home</a></li>
+        <li ng-class="{active: isActive('/about')}">
+          <a href="#!/about">About</a>
+        </li>
+        <li ng-class="{active: isActive('/badlink')}">
+          <a href="#!/badlink" class="text-danger">Bad link</a>
+        </li>
+      </ul>
       <div ng-view class="view-frame"></div>
-    </div>    
+    </div>
     <script src="lib/angular/angular.js"></script>
     <script src="lib/angular-route/angular-route.js"></script>
-    <script src="app.js"></script>
+    <script src="app.module.js"></script>
+    <script src="app.config.js"></script>
+    <script src="Views/notFound/not-found.module.js"></script>
+    <script src="Views/notFound/not-found.component.js"></script>
+    <script src="Views/home/home.module.js"></script>
+    <script src="Views/home/home.component.js"></script>
   </body>
 </html>

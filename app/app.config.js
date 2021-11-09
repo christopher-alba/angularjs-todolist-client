@@ -11,9 +11,11 @@ angular.module("myApp").config([
       .when("/todolist", {
         template: "<to-do-list></to-do-list>",
       })
-      .when("/404", {
-        template: "<not-found></not-found>",
+      .when("/", {
+        template: "<home></home>",
       })
-      .otherwise("/404");
+      .otherwise({
+        templateUrl: "Views/notFound/not-found.template.html",
+      });
   },
 ]);
