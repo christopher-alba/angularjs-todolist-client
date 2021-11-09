@@ -1,6 +1,6 @@
 angular.module("myApp").config([
-  "$routeProvider",
-  function config($routeProvider) {
+  "$routeProvider", "$locationProvider",
+  function config($routeProvider, $locationProvider) {
     $routeProvider
       .when("/login", {
         template: "<login></login>",
@@ -17,5 +17,8 @@ angular.module("myApp").config([
       .otherwise({
         templateUrl: "Views/notFound/not-found.template.html",
       });
+    
+    $locationProvider.html5Mode(true);
+    
   },
 ]);
