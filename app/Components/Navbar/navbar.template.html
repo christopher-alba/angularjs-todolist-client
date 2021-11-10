@@ -1,11 +1,23 @@
-<div>
+<div class="navbar-main-div">
   <div>
-    <a href="/">To Do List</a>
+    <a href="/"
+      ><div class="navbar-link" ng-class="{active: $ctrl.isActive('/')}">
+        To Do List
+      </div></a
+    >
   </div>
   <div>
-    <a href="/login">Login</a>
+    <a href="/login"
+      ><div class="navbar-link" ng-class="{active: $ctrl.isActive('/login')}">
+        Login
+      </div></a
+    >
   </div>
   <div>
-    <a href="/signup">Sign up</a>
+    <a href="/signup"
+      ><div class="navbar-link" ng-class="{active: $ctrl.isActive('/signup')}">
+        Signup
+      </div></a
+    >
   </div>
 </div>

@@ -1,0 +1,19 @@
+.navbar-main-div {
+  background: black;
+  display: flex;
+  flex-direction: row;
+}
+
+.navbar-link {
+  padding: 30px;
+  color: white;
+}
+
+.active {
+  background: white;
+  color: black;
+}
+
+.navbar-main-div a {
+  text-decoration: none;
+}
