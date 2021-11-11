@@ -1,5 +1,5 @@
 .navbar-main-div {
-  background: black;
+  background: rgb(0, 191, 134);
   display: flex;
   flex-direction: row;
 }
@@ -15,10 +15,11 @@
   align-items: center;
 }
 .navbar-link:hover {
-  background: darkgray;
+  background: rgb(67, 197, 130);
 }
 .navbar-link:focus {
-  background: darkgray;
+  background: rgb(67, 197, 130);
+  text-decoration: underline;
   outline: none;
 }
 .navbar-brand {
