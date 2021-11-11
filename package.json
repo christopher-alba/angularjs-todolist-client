@@ -10,6 +10,9 @@
     "angular-loader": "^1.7.5",
     "angular-resource": "^1.8.2",
     "angular-route": "^1.7.5",
+    "gulp": "^4.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-print": "^5.0.2",
     "html5-boilerplate": "0.0.1",
     "http-server": "^0.11.1"
   },
@@ -30,6 +33,7 @@
     "copy-libs": "cpx \"node_modules/{angular,angular-*,html5-boilerplate/dist}/**/*\" app/lib -C",
     "prestart": "npm install",
     "start": "http-server -a localhost -p 8000 -c-1 ./app",
+    "build": "gulp build",
     "pretest": "npm install",
     "test": "karma start karma.conf.js",
     "test-single-run": "npm test -- --single-run",

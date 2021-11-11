@@ -9,7 +9,7 @@ angular.module("myApp").config([
         template: "<signup></signup>",
       })
       .when("/todolist", {
-        template: "<to-do-list></to-do-list>",
+        template: "<todolist></todolist>",
       })
       .when("/", {
         template: "<home></home>",
