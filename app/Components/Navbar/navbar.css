@@ -16,6 +16,7 @@
 }
 .navbar-link:hover {
   background: rgb(67, 197, 130);
+  color:white;
 }
 .navbar-link:focus {
   background: rgb(67, 197, 130);
@@ -31,7 +32,7 @@
 }
 .active {
   background: white !important;
-  color: black;
+  color: black !important;
 }
 
 .navbar-main-div a {
