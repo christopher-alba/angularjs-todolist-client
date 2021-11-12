@@ -30,7 +30,6 @@
     "copy-libs": "cpx \"node_modules/{angular,angular-*,html5-boilerplate/dist}/**/*\" app/lib -C",
     "prestart": "npm install",
     "start": "http-server -a localhost -p 8000 -c-1 ./app",
-    "build": "gulp build",
     "pretest": "npm install",
     "test": "karma start karma.conf.js",
     "test-single-run": "npm test -- --single-run",

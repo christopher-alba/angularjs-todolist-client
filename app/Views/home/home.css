@@ -1,0 +1,22 @@
+.home-hero-image {
+  width: 100vw;
+  height: 50vh;
+  object-fit: cover;
+}
+.home-hero-image-overlay {
+  width: 100vw;
+  height: 50vh;
+  background: rgba(0, 191, 134, 0.9);
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  text-align: center;
+  justify-content: center;
+}
+.home-hero-wrapper {
+  position: relative;
+}
