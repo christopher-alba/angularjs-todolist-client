@@ -25,5 +25,5 @@ window.onload = () => {
     navbarResponsive();
   });
 };
-
+window.onscroll = navbarResponsive;
 window.onresize = navbarResponsive;
