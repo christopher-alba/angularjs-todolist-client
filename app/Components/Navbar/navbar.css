@@ -62,3 +62,30 @@
   align-items: center;
   justify-content: flex-end;
 }
+
+.navbar-mobile .fas.fa-bars {
+  color: white;
+}
+
+.navbar-mobile .fas.fa-bars:hover {
+  color: black;
+  cursor: pointer;
+}
+.navbar-mobile .fas.fa-bars:focus {
+  color: black;
+  outline: none;
+}
+.navbar-menu {
+  display: none;
+}
+
+.navbar-menu .navbar-link {
+  background: rgb(46, 46, 46);
+  padding: 10px;
+  text-decoration: none;
+}
+.navbar-menu .navbar-link:hover,
+.navbar-menu .navbar-link:focus {
+  background: rgb(67, 197, 130);
+  text-decoration: underline;
+}
