@@ -2,36 +2,41 @@
   <div class="navbar-brand">
     <h1 class="navbar-brand-text">ANGULAR.JS CHECKLIST</h1>
   </div>
-  <div>
-    <a class="navbar-link" ng-class="{active: $ctrl.isActive('/')}" href="/">
-      Home
-    </a>
+  <div class="navbar-desktop">
+    <div>
+      <a class="navbar-link" ng-class="{active: $ctrl.isActive('/')}" href="/">
+        Home
+      </a>
+    </div>
+    <div>
+      <a
+        class="navbar-link"
+        ng-class="{active: $ctrl.isActive('/todolist')}"
+        href="/todolist"
+      >
+        Checklist
+      </a>
+    </div>
+    <div>
+      <a
+        class="navbar-link"
+        ng-class="{active: $ctrl.isActive('/login')}"
+        href="/login"
+      >
+        Login
+      </a>
+    </div>
+    <div>
+      <a
+        class="navbar-link"
+        ng-class="{active: $ctrl.isActive('/signup')}"
+        href="/signup"
+      >
+        Sign up
+      </a>
+    </div>
   </div>
-  <div>
-    <a
-      class="navbar-link"
-      ng-class="{active: $ctrl.isActive('/todolist')}"
-      href="/todolist"
-    >
-      Checklist
-    </a>
-  </div>
-  <div>
-    <a
-      class="navbar-link"
-      ng-class="{active: $ctrl.isActive('/login')}"
-      href="/login"
-    >
-      Login
-    </a>
-  </div>
-  <div>
-    <a
-      class="navbar-link"
-      ng-class="{active: $ctrl.isActive('/signup')}"
-      href="/signup"
-    >
-      Sign up
-    </a>
+  <div class="navbar-mobile">
+    <h1>MOBILE</h1>
   </div>
 </div>
