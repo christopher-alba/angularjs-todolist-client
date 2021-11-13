@@ -13,7 +13,7 @@ app.service("Configuration", function () {
   if (window.location.host.includes("localhost")) {
     return (this.API = "http://localhost:3000/");
   } else {
-    return (this.API = "http://todolist-server.herokuapp.com");
+    return (this.API = "https://todolist-server.herokuapp.com");
   }
 });
 
