@@ -3,6 +3,13 @@
   height: 50vh;
   object-fit: cover;
 }
+
+.carousel-item img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
 @media (max-width: 1100px) {
   .carousel-item img {
     width: 100vw;
@@ -29,7 +36,7 @@
   position: relative;
   left: 0px;
 }
-.home-hero-text h1{
+.home-hero-text h1 {
   color: black;
 }
 .home-author {
@@ -38,22 +45,46 @@
 .home-hero-wrapper {
   position: relative;
   width: 100%;
-  height: 50vh;
+  height: fit-content;
+  border-bottom: 2px solid white;
 }
 .home-carousel-wrapper {
-  height: 50vh;
+  height: 300px;
   width: 100%;
-  overflow: hidden;
   position: relative;
+  top: -50px;
 }
 .home-carousel-wrapper .carousel {
-  width: 100%;
+  width: 40%;
   height: 100%;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid white;
 }
+@media (max-width: 1000px) {
+  .home-carousel-wrapper .carousel {
+    width: 100%;
+    border-top: none;
+  }
+  .home-carousel-wrapper {
+    top: 0px;
+  }
+}
+
+.home-carousel-wrapper .carousel .carousel-caption {
+  height:300px;
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  top:0px;
+}
+
 .home {
   overflow: hidden;
   width: 100%;
-  height: 100%;
+  min-height: 90.5vh;
+  background: rgb(81, 204, 167);
 }
 .home .active {
   background: rgb(0, 191, 134) !important;
