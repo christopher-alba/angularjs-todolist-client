@@ -72,14 +72,18 @@
 }
 
 .home-carousel-wrapper .carousel .carousel-caption {
-  height:300px;
-  display:flex;
+  height: 300px;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  top:0px;
+  top: 0px;
 }
-
+.home-carousel-wrapper .carousel .carousel-caption h5,
+.home-carousel-wrapper .carousel .carousel-caption p {
+  background: rgba(255, 255, 255, 0.604);
+  padding: 10px;
+}
 .home {
   overflow: hidden;
   width: 100%;
