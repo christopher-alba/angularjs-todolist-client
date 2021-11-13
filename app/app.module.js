@@ -11,9 +11,9 @@ const app = angular.module("myApp", [
 
 app.service("Configuration", function () {
   if (window.location.host.includes("localhost")) {
-    return (this.API = "http://localhost\\:7080/myapi/");
+    return (this.API = "http://localhost\\:3000/");
   } else {
-    return (this.API = "http://localhost\\:8099/hisapi/");
+    return (this.API = "http://todolist-server.herokuapp.com");
   }
 });
 
@@ -32,7 +32,7 @@ app.factory("AuthenticationService", [
     function Login(username, password, callback) {
       $http({
         method: "POST",
-        url: Configuration.API,
+        url: Configuration.API + "/auth/login",
         data: {
           username,
           password,
