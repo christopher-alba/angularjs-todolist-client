@@ -5,7 +5,7 @@ const navbarResponsive = () => {
   document
     .querySelector(".navbar-mobile .fas.fa-bars")
     .addEventListener("keypress", navbarMenuToggleEnter);
-  if (window.innerWidth < 750) {
+  if (window.innerWidth < 800) {
     $(".navbar-desktop").hide();
     $(".navbar-mobile").show();
     applyMobileStyles();
