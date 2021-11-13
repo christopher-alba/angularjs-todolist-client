@@ -21,8 +21,13 @@
   flex-direction: column;
   align-items: center;
   color: white;
-  text-align: center;
+
   justify-content: center;
+}
+.home-hero-text {
+  text-align: center;
+  width: 90%;
+  margin: 0 auto;
 }
 .home-hero-wrapper {
   position: relative;
