@@ -25,9 +25,15 @@
   justify-content: center;
 }
 .home-hero-text {
-  text-align: center;
-  width: 90%;
-  margin: 0 auto;
+  text-align: left;
+  position: relative;
+  left: 0px;
+}
+.home-hero-text h1{
+  color: black;
+}
+.home-author {
+  font-size: 3rem;
 }
 .home-hero-wrapper {
   position: relative;

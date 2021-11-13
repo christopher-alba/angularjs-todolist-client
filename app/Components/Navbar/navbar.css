@@ -5,6 +5,11 @@
   position: sticky;
   top: 0px;
   z-index: 10000;
+  height: 88px;
+}
+.navbar-main-inner-div {
+  display: flex;
+  flex-direction: row;
 }
 .navbar-desktop {
   display: flex;
@@ -31,6 +36,7 @@
 }
 .navbar-brand {
   padding: 30px;
+  padding-left: 0px;
   min-width: fit-content;
   width: fit-content;
 }
