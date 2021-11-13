@@ -1,8 +1,11 @@
 const navbarResponsive = () => {
-  console.log("TESTING A");
+  document
+    .querySelector(".navbar-mobile .fas.fa-bars")
+    .addEventListener("mousedown", navbarMenuToggle);
+  document
+    .querySelector(".navbar-mobile .fas.fa-bars")
+    .addEventListener("keypress", navbarMenuToggleEnter);
   if (window.innerWidth < 750) {
-    console.log("TESTING B");
-    console.log($(".navbar-desktop"));
     $(".navbar-desktop").hide();
     $(".navbar-mobile").show();
     applyMobileStyles();
