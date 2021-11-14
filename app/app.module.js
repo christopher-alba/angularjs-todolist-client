@@ -7,6 +7,7 @@ const app = angular.module("myApp", [
   "home",
   "todolist",
   "login",
+  "signup",
 ]);
 
 app.service("Configuration", function () {
