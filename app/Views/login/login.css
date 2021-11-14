@@ -8,7 +8,15 @@
 .login-input {
   width: 400px;
 }
-
+@media (max-width: 500px) {
+  .login-form {
+    width: 300px;
+    margin: 0 auto;
+  }
+  .login-input {
+    width: 300px;
+  }
+}
 .login-form h5 {
   padding-top: 10px;
 }
@@ -16,7 +24,7 @@
 .login-buttons-wrapper {
   margin-top: 20px;
   display: flex;
-  width: 400px;
+  width: 100%;
   justify-content: space-between;
   position: relative;
   flex-wrap: nowrap;

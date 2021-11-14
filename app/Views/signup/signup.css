@@ -8,7 +8,18 @@
 .signup-input {
   width: 400px;
 }
-
+@media (max-width: 500px) {
+  .signup-form {
+    width: 300px;
+    margin: 0 auto;
+  }
+  .signup-input {
+    width: 300px;
+  }
+}
+.signup-form h5 {
+  padding-top: 10px;
+}
 .signup-form h5 {
   padding-top: 10px;
 }
@@ -16,7 +27,7 @@
 .signup-buttons-wrapper {
   margin-top: 20px;
   display: flex;
-  width: 400px;
+  width: 100%;
   justify-content: space-between;
   position: relative;
   flex-wrap: nowrap;
