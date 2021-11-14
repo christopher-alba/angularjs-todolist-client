@@ -10,14 +10,6 @@ angular.module("signup").component("signup", {
       vm.username = "";
       vm.password = "";
 
-      initController();
-
-      function initController() {
-        // reset signup status
-        console.log("loggin user out");
-        AuthenticationService.Logout();
-      }
-
       function signup() {
         if (vm.username === "" || vm.password === "") {
           vm.error = "You must enter a valid username and password to signup";
