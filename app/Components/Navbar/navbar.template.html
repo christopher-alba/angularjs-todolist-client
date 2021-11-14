@@ -9,18 +9,25 @@
       </a>
       <a
         class="navbar-link"
-        ng-class="{active: $ctrl.isActive('/todolist')}"
+        ng-class="{active: $ctrl.isActive('/todolist'), hidden: $ctrl.loggedIn() === false}"
         href="/todolist"
       >
         Checklist
       </a>
       <a
         class="navbar-link"
-        ng-class="{active: $ctrl.isActive('/login')}"
+        ng-class="{active: $ctrl.isActive('/login'), hidden: $ctrl.loggedIn() === true}"
         href="/login"
       >
         Login
       </a>
+      <button
+        class="navbar-link navbar-button"
+        ng-class="{active: $ctrl.isActive('/login'), hidden: $ctrl.loggedIn() === false}"
+        ng-click="$ctrl.logout()"
+      >
+        Logout
+      </button>
       <a
         class="navbar-link"
         ng-class="{active: $ctrl.isActive('/signup')}"

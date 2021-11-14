@@ -42,16 +42,16 @@ app.factory("AuthenticationService", [
         .then(function (response) {
           console.log(response);
           // login successful if there's a token in the response
-          if (response.token) {
+          if (response.data.token) {
             // store username and token in local storage to keep user logged in between page refreshes
-            $window.localStorage.currentUser = {
+            $window.localStorage.currentUser = JSON.stringify({
               username: username,
-              token: response.token,
-            };
+              token: response.data.token,
+            });
 
             // add jwt token to auth header for all requests made by the $http service
             $http.defaults.headers.common.Authorization =
-              "Bearer " + response.token;
+              "Bearer " + response.data.token;
 
             // execute callback with true to indicate successful login
             callback(true);

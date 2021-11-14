@@ -7,16 +7,24 @@ angular.module("login").component("login", {
       var vm = this;
 
       vm.login = login;
+      vm.username = "";
+      vm.password = "";
 
       initController();
 
       function initController() {
         // reset login status
+        console.log("loggin user out");
         AuthenticationService.Logout();
       }
 
       function login() {
-        console.log("TESTING");
+        if (vm.username === "" || vm.password === "") {
+          vm.error = "You must enter a valid username and password to login";
+          return;
+        } else {
+          vm.error = undefined;
+        }
         vm.loading = true;
         AuthenticationService.Login(
           vm.username,
