@@ -6,6 +6,7 @@ angular.module("todolist").component("todolist", {
     function Controller(ToDoListService, $window) {
       this.lists = [];
       this.listname = "";
+      this.selectedListID = "";
 
       const getLists = () => {
         if ($window.localStorage.currentUser !== undefined) {
@@ -26,9 +27,20 @@ angular.module("todolist").component("todolist", {
             $window.localStorage.currentUser
           ).username;
           ToDoListService.addList(username, this.listname, (list) => {
-            console.log(list);
-            console.log(this.lists);
             this.lists.push(list);
+          });
+        }
+      };
+
+      const deleteList = (selectedListID) => {
+        if ($window.localStorage.currentUser !== undefined) {
+          const username = JSON.parse(
+            $window.localStorage.currentUser
+          ).username;
+          ToDoListService.deleteList(username, selectedListID, (response) => {
+            this.lists = this.lists.filter((list) => {
+              return list._id !== selectedListID;
+            });
           });
         }
       };
@@ -36,7 +48,7 @@ angular.module("todolist").component("todolist", {
       this.getLists = getLists;
       // this.getListItems = getListItems;
       this.addList = addList;
-      // this.deleteList = deleteList;
+      this.deleteList = deleteList;
       // this.addListItem = addListItem;
       // this.deleteListItem = deleteListItem;
       // this.lists = [];
