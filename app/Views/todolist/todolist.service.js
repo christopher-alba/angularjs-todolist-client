@@ -29,7 +29,18 @@ angular.module("todolist").factory("ToDoListService", [
         callback(response.data.listItems);
       });
     };
-    const addList = () => {};
+    const addList = (username, listname, callback) => {
+      $http({
+        method: "POST",
+        url: Configuration.API + username + "/lists/",
+        data: {
+          name: listname,
+        },
+        headers: { "Content-Type": "application/json" },
+      }).then((response) => {
+        callback(response.data.lists);
+      });
+    };
     const deleteList = () => {};
     const addListItem = () => {};
     const deleteListItem = () => {};

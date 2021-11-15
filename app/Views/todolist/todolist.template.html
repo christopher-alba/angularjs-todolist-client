@@ -1,2 +1,5 @@
 <h1>TO DO LIST</h1>
-<Button ng-click="$ctrl.getLists()">Get Lists</Button>
+<input type="text" ng-model="$ctrl.listname" />
+<button ng-click="$ctrl.addList()">Add List</button>
+<button ng-click="$ctrl.getLists()">Get Lists</button>
+<div ng-repeat="list in $ctrl.lists">{{ list.name }}</div>
