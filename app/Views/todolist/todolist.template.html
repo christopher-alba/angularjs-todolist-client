@@ -12,5 +12,8 @@
   <div class="checklist" ng-class="{hidden: $ctrl.selectedList === undefined}">
     <button ng-click="$ctrl.clearSelectedList()">View all lists</button>
     <h1>{{$ctrl.selectedList.name}}</h1>
+    <div>
+      <div ng-repeat="item in $ctrl.listItems">{{item}}</div>
+    </div>
   </div>
 </div>
