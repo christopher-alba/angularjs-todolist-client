@@ -1,8 +1,16 @@
-<h1>TO DO LIST</h1>
-<input type="text" ng-model="$ctrl.listname" />
-<button ng-click="$ctrl.addList()">Add List</button>
-<button ng-click="$ctrl.getLists()">Get Lists</button>
-<div ng-repeat="list in $ctrl.lists">
-  {{ list.name }}
-  <button ng-click="$ctrl.deleteList(list._id)">Delete List</button>
+<div class="container">
+  <div class="checklists" ng-class="{hidden: $ctrl.selectedList !== undefined}">
+    <h1>Here are your Checklists, username: {{$ctrl.username}}</h1>
+    <input type="text" ng-model="$ctrl.listname" />
+    <button ng-click="$ctrl.addList()">Add List</button>
+    <button ng-click="$ctrl.getLists()">Refresh Lists</button>
+    <div ng-repeat="list in $ctrl.lists" ng-click="$ctrl.setSelectedList(list)">
+      {{ list.name }}
+      <button ng-click="$ctrl.deleteList(list._id)">Delete List</button>
+    </div>
+  </div>
+  <div class="checklist" ng-class="{hidden: $ctrl.selectedList === undefined}">
+    <button ng-click="$ctrl.clearSelectedList()">View all lists</button>
+    <h1>{{$ctrl.selectedList.name}}</h1>
+  </div>
 </div>
