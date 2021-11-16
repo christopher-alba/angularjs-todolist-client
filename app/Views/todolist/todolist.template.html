@@ -13,6 +13,11 @@
     <button ng-click="$ctrl.clearSelectedList()">View all lists</button>
     <h1>{{$ctrl.selectedList.name}}</h1>
     <div>
+      <input type="text" ng-model="$ctrl.itemName" />
+      <input type="date" ng-model="$ctrl.itemDueDate" />
+      <button ng-click="$ctrl.createItem()">Add Item</button>
+    </div>
+    <div>
       <div ng-repeat="item in $ctrl.listItems">
         <input
           ng-checked="item.status === 'COMPLETE'"
