@@ -9,6 +9,7 @@ angular.module("todolist").component("todolist", {
       this.listname = "";
       this.selectedListID = "";
       this.username = JSON.parse($window.localStorage.currentUser).username;
+      this.listItems = [];
 
       const getLists = () => {
         if ($window.localStorage.currentUser !== undefined) {
@@ -48,9 +49,15 @@ angular.module("todolist").component("todolist", {
       };
 
       const setSelectedList = (list) => {
-        console.log("setting list");
-        console.log(list);
-        this.selectedList = list;
+        if ($window.localStorage.currentUser !== undefined) {
+          this.selectedList = list;
+          const username = JSON.parse(
+            $window.localStorage.currentUser
+          ).username;
+          ToDoListService.getListItems(username, list._id, (listItems) => {
+            this.listItems = listItems;
+          });
+        }
       };
 
       const clearSelectedList = () => {
