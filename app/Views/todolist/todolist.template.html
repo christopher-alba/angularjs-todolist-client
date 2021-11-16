@@ -13,7 +13,14 @@
     <button ng-click="$ctrl.clearSelectedList()">View all lists</button>
     <h1>{{$ctrl.selectedList.name}}</h1>
     <div>
-      <div ng-repeat="item in $ctrl.listItems">{{item}}</div>
+      <div ng-repeat="item in $ctrl.listItems">
+        <input
+          ng-checked="item.status === 'COMPLETE'"
+          type="checkbox"
+          ng-click="$ctrl.updateItemStatus($event,item._id)"
+        />
+        {{item}}
+      </div>
     </div>
   </div>
 </div>

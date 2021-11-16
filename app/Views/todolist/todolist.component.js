@@ -64,6 +64,23 @@ angular.module("todolist").component("todolist", {
         this.selectedList = undefined;
       };
 
+      const updateItemStatus = (event, itemID) => {
+        if ($window.localStorage.currentUser !== undefined) {
+          this.listItems = this.listItems.map((item) => {
+            if (item._id === itemID) {
+              item.status = event.target.checked ? "COMPLETE" : "IN PROGRESS";
+            }
+            return item;
+          });
+
+          const item = this.listItems.find((item) => item._id === itemID);
+          const username = JSON.parse(
+            $window.localStorage.currentUser
+          ).username;
+          ToDoListService.updateListItem(item, username, itemID);
+        }
+      };
+
       this.getLists = getLists;
       // this.getListItems = getListItems;
       this.addList = addList;
@@ -72,6 +89,8 @@ angular.module("todolist").component("todolist", {
       // this.deleteListItem = deleteListItem;
       this.setSelectedList = setSelectedList;
       this.clearSelectedList = clearSelectedList;
+
+      this.updateItemStatus = updateItemStatus;
     },
   ],
 });

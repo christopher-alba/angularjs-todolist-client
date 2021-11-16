@@ -29,6 +29,18 @@ angular.module("todolist").factory("ToDoListService", [
         callback(response.data.listItems);
       });
     };
+
+    const updateListItem = (item, username, itemID) => {
+      $http({
+        method: "PUT",
+        url: Configuration.API + username + "/items/" + itemID,
+        data: {
+          ...item,
+        },
+        headers: { "Content-Type": "application/json" },
+      }).then((response) => {});
+    };
+
     const addList = (username, listname, callback) => {
       $http({
         method: "POST",
@@ -59,6 +71,7 @@ angular.module("todolist").factory("ToDoListService", [
     service.deleteList = deleteList;
     service.addListItem = addListItem;
     service.deleteListItem = deleteListItem;
+    service.updateListItem = updateListItem;
 
     return service;
   },
