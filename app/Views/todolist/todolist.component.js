@@ -102,15 +102,37 @@ angular.module("todolist").component("todolist", {
         }
       };
 
+      const deleteItem = (itemID) => {
+        if ($window.localStorage.currentUser !== undefined) {
+          const username = JSON.parse(
+            $window.localStorage.currentUser
+          ).username;
+          ToDoListService.deleteListItem(
+            username,
+            this.selectedList._id,
+            itemID,
+            (response) => {
+              this.listItems = this.listItems.filter(
+                (item) => item._id !== itemID
+              );
+              this.lists = this.lists.map((list) => {
+                if (list._id === this.selectedList._id) {
+                  list.itemsIDs = list.itemsIDs.filter((id) => id !== itemID);
+                }
+                return list;
+              });
+            }
+          );
+        }
+      };
+
       this.getLists = getLists;
-      // this.getListItems = getListItems;
       this.addList = addList;
       this.deleteList = deleteList;
       this.createItem = createItem;
-      // this.deleteListItem = deleteListItem;
       this.setSelectedList = setSelectedList;
       this.clearSelectedList = clearSelectedList;
-
+      this.deleteItem = deleteItem;
       this.updateItemStatus = updateItemStatus;
     },
   ],
