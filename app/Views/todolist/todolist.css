@@ -72,6 +72,30 @@
   display: flex;
 }
 
+.checklist .checkbox {
+  height: fit-content;
+  background: none;
+}
+
+.task {
+  padding: 20px;
+  border: 2px solid white;
+  border-radius: 10px;
+  margin: 10px 10px 10px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.task p {
+  margin-bottom: 0px;
+}
+.completed {
+  text-decoration: line-through;
+}
+.inprogress {
+  text-decoration: underline;
+}
 @media (max-width: 500px) {
   .lists-input-wrapper {
     display: block;

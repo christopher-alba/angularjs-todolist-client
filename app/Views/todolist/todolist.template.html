@@ -39,13 +39,19 @@
         <button ng-click="$ctrl.createItem()">Add Item</button>
       </div>
       <div>
-        <div ng-repeat="item in $ctrl.listItems">
+        <div ng-repeat="item in $ctrl.listItems" class="task">
           <input
+            class="checkbox"
             ng-checked="item.status === 'COMPLETE'"
             type="checkbox"
             ng-click="$ctrl.updateItemStatus($event,item._id)"
           />
-          {{item}}
+          <h3
+            ng-class="{completed: item.status === 'COMPLETE', inprogress: item.status === 'IN PROGRESS'}"
+          >
+            {{item.text}}
+          </h3>
+
           <p
             ng-class="{hidden: item.dateDue === undefined || item.dateDue === null }"
           >
