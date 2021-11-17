@@ -14,6 +14,19 @@ angular.module("myApp").component("navbar", {
       this.logout = function () {
         AuthenticationService.Logout();
       };
+
+      const toggleNav = () => {
+        $(".navbar-menu").slideToggle();
+      };
+
+      const toggleNavEnter = (event) => {
+        if (event.key === "Enter") {
+          $(".navbar-menu").slideToggle();
+        }
+      };
+
+      this.toggleNav = toggleNav;
+      this.toggleNavEnter = toggleNavEnter;
     },
   ],
 });
