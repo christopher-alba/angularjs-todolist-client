@@ -19,7 +19,12 @@ angular.module("todolist").component("todolist", {
         );
       };
 
+      const getLocalTimeZone = (UTCtime) => {
+        return new Date(UTCtime).toLocaleDateString();
+      };
+
       this.getDaysRemaining = getDaysRemaining;
+      this.getLocalTimeZone = getLocalTimeZone;
 
       const getLists = () => {
         if ($window.localStorage.currentUser !== undefined) {
@@ -74,20 +79,37 @@ angular.module("todolist").component("todolist", {
         this.selectedList = undefined;
       };
 
+      const setStatus = (event, item) => {
+        console.log("TESTING SET STATUS");
+        if ($window.localStorage.currentUser !== undefined) {
+          const username = JSON.parse(
+            $window.localStorage.currentUser
+          ).username;
+          ToDoListService.updateListItem(item, username, item._id, () => {
+            this.listItems = this.listItems.map((itemObj) => {
+              if (itemObj._id === item._id) {
+                itemObj.status = event.target.value;
+              }
+              return itemObj;
+            });
+          });
+        }
+      };
+
       const updateItemStatus = (event, itemID) => {
         if ($window.localStorage.currentUser !== undefined) {
-          this.listItems = this.listItems.map((item) => {
-            if (item._id === itemID) {
-              item.status = event.target.checked ? "COMPLETE" : "IN PROGRESS";
-            }
-            return item;
-          });
-
           const item = this.listItems.find((item) => item._id === itemID);
           const username = JSON.parse(
             $window.localStorage.currentUser
           ).username;
-          ToDoListService.updateListItem(item, username, itemID);
+          ToDoListService.updateListItem(item, username, itemID, () => {
+            this.listItems = this.listItems.map((item) => {
+              if (item._id === itemID) {
+                item.status = event.target.checked ? "COMPLETE" : "IN PROGRESS";
+              }
+              return item;
+            });
+          });
         }
       };
 
@@ -143,6 +165,7 @@ angular.module("todolist").component("todolist", {
       this.clearSelectedList = clearSelectedList;
       this.deleteItem = deleteItem;
       this.updateItemStatus = updateItemStatus;
+      this.setStatus = setStatus;
     },
   ],
 });

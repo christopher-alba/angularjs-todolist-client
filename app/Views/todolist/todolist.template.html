@@ -25,8 +25,28 @@
           type="checkbox"
           ng-click="$ctrl.updateItemStatus($event,item._id)"
         />
-        {{item}} {{item.dateDue !== undefined ?
-        $ctrl.getDaysRemaining(item.dateDue) : undefined}}
+        {{item}}
+        <p
+          ng-class="{hidden: item.dateDue === undefined || item.dateDue === null }"
+        >
+          Date Due: {{$ctrl.getLocalTimeZone(item.dateDue)}}
+        </p>
+        <p
+          ng-class="{hidden: item.dateDue === undefined || item.dateDue === null }"
+        >
+          Days remaining: {{item.dateDue !== undefined && item.dateDue !== null
+          ? $ctrl.getDaysRemaining(item.dateDue) : undefined}}
+        </p>
+        <select
+          name=""
+          id=""
+          ng-value="item.status"
+          ng-click="$ctrl.setStatus($event, item)"
+        >
+          <option value="NEW">NEW</option>
+          <option value="IN PROGRESS">IN PROGRESS</option>
+          <option value="COMPLETE">COMPLETE</option>
+        </select>
         <button ng-click="$ctrl.deleteItem(item._id)">Delete</button>
       </div>
     </div>

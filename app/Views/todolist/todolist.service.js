@@ -30,7 +30,7 @@ angular.module("todolist").factory("ToDoListService", [
       });
     };
 
-    const updateListItem = (item, username, itemID) => {
+    const updateListItem = (item, username, itemID, callback) => {
       $http({
         method: "PUT",
         url: Configuration.API + username + "/items/" + itemID,
@@ -38,7 +38,9 @@ angular.module("todolist").factory("ToDoListService", [
           ...item,
         },
         headers: { "Content-Type": "application/json" },
-      }).then((response) => {});
+      }).then((response) => {
+        callback(response);
+      });
     };
 
     const addList = (username, listname, callback) => {
