@@ -1,3 +1,70 @@
 .hidden {
   display: none;
 }
+.checklist-wrapper {
+  background: rgb(81, 204, 167);
+  min-height: 91vh;
+  padding-top: 50px;
+  color: white;
+}
+.checklist-wrapper button {
+  background: white;
+  border: none;
+  padding: 5px;
+  min-width: 100px;
+  height: 100%;
+  border-radius: 5px;
+}
+.checklist-wrapper button:hover {
+  background: lightgray;
+}
+.checklist-wrapper input {
+  background: none;
+  height: 100%;
+  border: 2px solid white;
+  color: white;
+}
+
+.lists-input-wrapper input {
+  width: 100%;
+  border: none;
+  margin-right: 5px;
+}
+.lists-input-wrapper input:focus {
+  outline: none;
+  border-bottom: 2px solid white;
+}
+.lists-input-wrapper {
+  position: relative;
+  height: 58px;
+  max-width: 600px;
+  display: flex;
+  flex-wrap: nowrap;
+  border: 2px solid white;
+  border-radius: 10px;
+  overflow: hidden;
+  padding: 10px;
+  margin: 10px;
+  margin-left: 0px;
+}
+
+.lists-input-wrapper .button1 {
+  margin-right: 5px;
+}
+
+.checklists-list {
+  padding: 10px;
+  margin: 10px;
+  margin-left: 0px;
+  display: flex;
+  justify-content: space-between;
+  max-width: 600px;
+  background: none;
+  color: white;
+  border-radius: 10px;
+  border: 2px solid white;
+}
+
+.checklists-list h3 {
+  margin: 0px;
+}

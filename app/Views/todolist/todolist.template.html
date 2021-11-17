@@ -1,53 +1,72 @@
-<div class="container">
-  <div class="checklists" ng-class="{hidden: $ctrl.selectedList !== undefined}">
-    <h1>Here are your Checklists, username: {{$ctrl.username}}</h1>
-    <input type="text" ng-model="$ctrl.listname" />
-    <button ng-click="$ctrl.addList()">Add List</button>
-    <button ng-click="$ctrl.getLists()">Refresh Lists</button>
-    <div ng-repeat="list in $ctrl.lists">
-      {{ list.name }}
-      <button ng-click="$ctrl.setSelectedList(list)">Visit</button>
-      <button ng-click="$ctrl.deleteList(list._id)">Delete List</button>
-    </div>
-  </div>
-  <div class="checklist" ng-class="{hidden: $ctrl.selectedList === undefined}">
-    <button ng-click="$ctrl.clearSelectedList()">View all lists</button>
-    <h1>{{$ctrl.selectedList.name}}</h1>
-    <div>
-      <input type="text" ng-model="$ctrl.itemName" />
-      <input type="date" ng-model="$ctrl.itemDueDate" />
-      <button ng-click="$ctrl.createItem()">Add Item</button>
-    </div>
-    <div>
-      <div ng-repeat="item in $ctrl.listItems">
+<div class="checklist-wrapper">
+  <div class="container">
+    <div
+      class="checklists"
+      ng-class="{hidden: $ctrl.selectedList !== undefined}"
+    >
+      <h1>Here are your Checklists, username: {{$ctrl.username}}</h1>
+      <div class="lists-input-wrapper">
         <input
-          ng-checked="item.status === 'COMPLETE'"
-          type="checkbox"
-          ng-click="$ctrl.updateItemStatus($event,item._id)"
+          type="text"
+          ng-model="$ctrl.listname"
+          placeholder="Enter Checklist Name Here"
         />
-        {{item}}
-        <p
-          ng-class="{hidden: item.dateDue === undefined || item.dateDue === null }"
-        >
-          Date Due: {{$ctrl.getLocalTimeZone(item.dateDue)}}
-        </p>
-        <p
-          ng-class="{hidden: item.dateDue === undefined || item.dateDue === null }"
-        >
-          Days remaining: {{item.dateDue !== undefined && item.dateDue !== null
-          ? $ctrl.getDaysRemaining(item.dateDue) : undefined}}
-        </p>
-        <select
-          name=""
-          id=""
-          ng-value="item.status"
-          ng-click="$ctrl.setStatus($event, item)"
-        >
-          <option value="NEW">NEW</option>
-          <option value="IN PROGRESS">IN PROGRESS</option>
-          <option value="COMPLETE">COMPLETE</option>
-        </select>
-        <button ng-click="$ctrl.deleteItem(item._id)">Delete</button>
+        <button class="button1" ng-click="$ctrl.addList()">Add List</button>
+        <button class="button2" ng-click="$ctrl.getLists()">
+          Refresh Lists
+        </button>
+      </div>
+
+      <div class="checklists-list" ng-repeat="list in $ctrl.lists">
+        <h3>{{ list.name }}</h3>
+        <div>
+          <button ng-click="$ctrl.setSelectedList(list)">Visit</button>
+          <button ng-click="$ctrl.deleteList(list._id)">Delete List</button>
+        </div>
+      </div>
+    </div>
+    <div
+      class="checklist"
+      ng-class="{hidden: $ctrl.selectedList === undefined}"
+    >
+      <button ng-click="$ctrl.clearSelectedList()">View all lists</button>
+      <h1>{{$ctrl.selectedList.name}}</h1>
+      <div>
+        <input type="text" ng-model="$ctrl.itemName" />
+        <input type="date" ng-model="$ctrl.itemDueDate" />
+        <button ng-click="$ctrl.createItem()">Add Item</button>
+      </div>
+      <div>
+        <div ng-repeat="item in $ctrl.listItems">
+          <input
+            ng-checked="item.status === 'COMPLETE'"
+            type="checkbox"
+            ng-click="$ctrl.updateItemStatus($event,item._id)"
+          />
+          {{item}}
+          <p
+            ng-class="{hidden: item.dateDue === undefined || item.dateDue === null }"
+          >
+            Date Due: {{$ctrl.getLocalTimeZone(item.dateDue)}}
+          </p>
+          <p
+            ng-class="{hidden: item.dateDue === undefined || item.dateDue === null }"
+          >
+            Days remaining: {{item.dateDue !== undefined && item.dateDue !==
+            null ? $ctrl.getDaysRemaining(item.dateDue) : undefined}}
+          </p>
+          <select
+            name=""
+            id=""
+            ng-value="item.status"
+            ng-click="$ctrl.setStatus($event, item)"
+          >
+            <option value="NEW">NEW</option>
+            <option value="IN PROGRESS">IN PROGRESS</option>
+            <option value="COMPLETE">COMPLETE</option>
+          </select>
+          <button ng-click="$ctrl.deleteItem(item._id)">Delete</button>
+        </div>
       </div>
     </div>
   </div>

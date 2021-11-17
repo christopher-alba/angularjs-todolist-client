@@ -80,7 +80,6 @@ angular.module("todolist").component("todolist", {
       };
 
       const setStatus = (event, item) => {
-        console.log("TESTING SET STATUS");
         if ($window.localStorage.currentUser !== undefined) {
           const username = JSON.parse(
             $window.localStorage.currentUser
