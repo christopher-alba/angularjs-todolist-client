@@ -11,6 +11,8 @@ angular.module("todolist").component("todolist", {
       this.itemName = "";
       this.itemDueDate = undefined;
 
+      this.username = JSON.parse($window.localStorage.currentUser).username;
+
       const getDaysRemaining = (dueDate) => {
         return Math.ceil(
           (new Date(dueDate) - new Date()) / (1000 * 60 * 60 * 24)

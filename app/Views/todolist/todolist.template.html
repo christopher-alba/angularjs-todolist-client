@@ -4,8 +4,9 @@
     <input type="text" ng-model="$ctrl.listname" />
     <button ng-click="$ctrl.addList()">Add List</button>
     <button ng-click="$ctrl.getLists()">Refresh Lists</button>
-    <div ng-repeat="list in $ctrl.lists" ng-click="$ctrl.setSelectedList(list)">
+    <div ng-repeat="list in $ctrl.lists">
       {{ list.name }}
+      <button ng-click="$ctrl.setSelectedList(list)">Visit</button>
       <button ng-click="$ctrl.deleteList(list._id)">Delete List</button>
     </div>
   </div>
