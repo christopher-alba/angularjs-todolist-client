@@ -12,7 +12,9 @@ angular.module("myApp").component("navbar", {
         return $window.localStorage.currentUser !== undefined;
       };
       this.logout = function () {
-        AuthenticationService.Logout();
+        AuthenticationService.Logout(function () {
+          $location.path("/");
+        });
       };
 
       const toggleNav = () => {

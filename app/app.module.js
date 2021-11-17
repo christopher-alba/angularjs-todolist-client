@@ -78,7 +78,6 @@ app.factory("AuthenticationService", [
         headers: { "Content-Type": "application/json" },
       })
         .then(function (response) {
-          console.log(response);
           // login successful if there's a token in the response
           if (response.data.token) {
             // store username and token in local storage to keep user logged in between page refreshes
@@ -103,10 +102,11 @@ app.factory("AuthenticationService", [
         });
     }
 
-    function Logout() {
+    function Logout(callback) {
       // remove user from local storage and clear http auth header
       delete $window.localStorage.currentUser;
       $http.defaults.headers.common.Authorization = "";
+      if (callback) callback();
     }
   },
 ]);

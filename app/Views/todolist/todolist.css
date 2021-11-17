@@ -42,7 +42,6 @@
   flex-wrap: nowrap;
   border: 2px solid white;
   border-radius: 10px;
-  overflow: hidden;
   padding: 10px;
   margin: 10px;
   margin-left: 0px;
@@ -67,4 +66,37 @@
 
 .checklists-list h3 {
   margin: 0px;
+}
+
+.lists-input-wrapper .button-wrapper {
+  display: flex;
+}
+
+@media (max-width: 500px) {
+  .lists-input-wrapper {
+    display: block;
+    height: fit-content;
+  }
+  .lists-input-wrapper input {
+    margin-bottom: 10px;
+  }
+  .lists-input-wrapper .button-wrapper button {
+    width: 100%;
+  }
+  .checklists-list {
+    display: block;
+  }
+  .checklists-list h3 {
+    padding-bottom: 10px;
+  }
+  .checklists-list .button-wrapper {
+    display: flex;
+  }
+  .checklists-list button {
+    width: 45%;
+    flex-grow: 1;
+  }
+  .checklists-list button:last-of-type {
+    margin-left: 5px;
+  }
 }

@@ -11,15 +11,17 @@
           ng-model="$ctrl.listname"
           placeholder="Enter Checklist Name Here"
         />
-        <button class="button1" ng-click="$ctrl.addList()">Add List</button>
-        <button class="button2" ng-click="$ctrl.getLists()">
-          Refresh Lists
-        </button>
+        <div class="button-wrapper">
+          <button class="button1" ng-click="$ctrl.addList()">Add List</button>
+          <button class="button2" ng-click="$ctrl.getLists()">
+            Refresh Lists
+          </button>
+        </div>
       </div>
 
       <div class="checklists-list" ng-repeat="list in $ctrl.lists">
         <h3>{{ list.name }}</h3>
-        <div>
+        <div class="button-wrapper">
           <button ng-click="$ctrl.setSelectedList(list)">Visit</button>
           <button ng-click="$ctrl.deleteList(list._id)">Delete List</button>
         </div>
