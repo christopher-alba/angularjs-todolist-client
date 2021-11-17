@@ -63,7 +63,7 @@ app.factory("AuthenticationService", [
           }
         })
         .catch(() => {
-          callback(false);
+          console.log("Server is offline, sorry for the inconvenience.");
         });
     }
 
