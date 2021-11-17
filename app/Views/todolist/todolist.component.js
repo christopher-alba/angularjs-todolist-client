@@ -8,9 +8,16 @@ angular.module("todolist").component("todolist", {
       this.selectedList = undefined;
       this.listname = "";
       this.listItems = [];
-
       this.itemName = "";
       this.itemDueDate = undefined;
+
+      const getDaysRemaining = (dueDate) => {
+        return Math.ceil(
+          (new Date(dueDate) - new Date()) / (1000 * 60 * 60 * 24)
+        );
+      };
+
+      this.getDaysRemaining = getDaysRemaining;
 
       const getLists = () => {
         if ($window.localStorage.currentUser !== undefined) {

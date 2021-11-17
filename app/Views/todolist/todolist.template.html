@@ -24,7 +24,8 @@
           type="checkbox"
           ng-click="$ctrl.updateItemStatus($event,item._id)"
         />
-        {{item}}
+        {{item}} {{item.dateDue !== undefined ?
+        $ctrl.getDaysRemaining(item.dateDue) : undefined}}
         <button ng-click="$ctrl.deleteItem(item._id)">Delete</button>
       </div>
     </div>
