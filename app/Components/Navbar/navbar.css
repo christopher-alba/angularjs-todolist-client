@@ -111,4 +111,7 @@
     align-items: center;
     justify-content: flex-end;
   }
+  .navbar-button {
+    width: 100%;
+  }
 }
