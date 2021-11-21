@@ -9,7 +9,10 @@ angular.module("todolist").factory("ToDoListService", [
       $http({
         method: "GET",
         url: Configuration.API + username + "/lists",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: $window.localStorage.currentUser,
+        },
       })
         .then((response) => {
           callback(response.data.lists);
@@ -24,7 +27,10 @@ angular.module("todolist").factory("ToDoListService", [
       $http({
         method: "GET",
         url: Configuration.API + username + "/lists/" + listID,
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: $window.localStorage.currentUser,
+        },
       }).then((response) => {
         callback(response.data.listItems);
       });
@@ -37,7 +43,10 @@ angular.module("todolist").factory("ToDoListService", [
         data: {
           ...item,
         },
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: $window.localStorage.currentUser,
+        },
       }).then((response) => {
         callback(response);
       });
@@ -50,7 +59,10 @@ angular.module("todolist").factory("ToDoListService", [
         data: {
           name: listname,
         },
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: $window.localStorage.currentUser,
+        },
       }).then((response) => {
         callback(response.data.lists);
       });
@@ -59,7 +71,10 @@ angular.module("todolist").factory("ToDoListService", [
       $http({
         method: "DELETE",
         url: Configuration.API + username + "/lists/" + listID,
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: $window.localStorage.currentUser,
+        },
       }).then((response) => {
         callback(response.data.response);
       });
@@ -71,7 +86,10 @@ angular.module("todolist").factory("ToDoListService", [
         data: {
           ...item,
         },
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: $window.localStorage.currentUser,
+        },
       }).then((response) => {
         callback(response.data.listItem);
       });
@@ -80,7 +98,10 @@ angular.module("todolist").factory("ToDoListService", [
       $http({
         method: "DELETE",
         url: Configuration.API + username + "/" + listID + "/items/" + itemID,
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: $window.localStorage.currentUser,
+        },
       }).then((response) => {
         callback(response.data.response);
       });
